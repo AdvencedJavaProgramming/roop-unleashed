@@ -18,7 +18,7 @@ def virtualcamera(swap_model, streamobs, use_xseg, use_mouthrestore, cam_num,wid
 
     #time.sleep(2)
     print('Starting capture')
-    cap = cv2.VideoCapture(cam_num, cv2.CAP_DSHOW if platform.system() != 'Darwin' else cv2.CAP_AVFOUNDATION)
+    cap = cv2.VideoCapture('rtsp://0.tcp.eu.ngrok.io:12032/live')
     if not cap.isOpened():
         print("Cannot open camera")
         cap.release()
