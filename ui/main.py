@@ -34,7 +34,7 @@ def run():
 
     set_display_ui(show_msg)
     if roop.globals.CFG.provider == "cuda" and util.has_cuda_device() == False:
-       roop.globals.CFG.provider = "cpu"
+        roop.globals.CFG.provider = "cuda"
 
     roop.globals.execution_providers = decode_execution_providers([roop.globals.CFG.provider])
     gputype = util.get_device()
