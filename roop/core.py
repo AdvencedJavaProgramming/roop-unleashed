@@ -405,3 +405,4 @@ def run() -> None:
     roop.globals.max_memory = roop.globals.CFG.memory_limit if roop.globals.CFG.memory_limit > 0 else None
     if roop.globals.startup_args.server_share:
         roop.globals.CFG.server_share = True
+    main.run()
