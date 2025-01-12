@@ -11,7 +11,6 @@ import warnings
 from typing import List
 import platform
 import signal
-import torch
 import onnxruntime
 import pathlib
 import argparse
