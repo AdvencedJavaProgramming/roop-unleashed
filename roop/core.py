@@ -66,10 +66,12 @@ def decode_execution_providers(execution_providers: List[str]) -> List[str]:
             if any(execution_provider in encoded_execution_provider for execution_provider in execution_providers)]
     
     try:
-        torch.cuda.device("cuda" if torch.cuda.is_available() else "cpu")
         for i in range(len(list_providers)):
             if list_providers[i] == 'CUDAExecutionProvider':
                 list_providers[i] = ('CUDAExecutionProvider', {'device_id': roop.globals.cuda_device_id})
+                torch.cuda.set_device(roop.globals.cuda_device_id)
+            if list_providers[i] == 'TensorrtExecutionProvider':
+                list_providers[i] = ('TensorrtExecutionProvider', {'device_id': roop.globals.cuda_device_id})
                 torch.cuda.set_device(roop.globals.cuda_device_id)
                 break
     except:
